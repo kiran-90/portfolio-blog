@@ -73,10 +73,18 @@ function kays_setup() {
             'width' => 90,
             'height' => 90,
             'flex-width' => true,
+            'flex-height' => true, //skips cropping option
         ) );
         
         /* Editor styles */
         add_editor_style( array( 'inc/editor-styles.css', kays_fonts_url() ));
+        
+        // Upload SVG's
+        function cc_mime_types($mimes) {
+            $mimes['svg'] = 'image/svg+xml';
+        return $mimes;
+        }
+        add_filter('upload_mimes', 'cc_mime_types');
 }
 endif;
 add_action( 'after_setup_theme', 'kays_setup' );
