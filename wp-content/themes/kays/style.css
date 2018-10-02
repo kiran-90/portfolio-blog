@@ -1086,16 +1086,13 @@ a:hover, a:active {
 }
 
 .custom-logo-link {
-	background: url(./images/k-logo.svg) no-repeat center left;
 	margin-right: 1em;
-	background-size: contain;
-	border: 0;
-	width: 90px;
-	height: 120px;
 }
 
 .custom-logo-link img {
-	display: none;
+	display: block;
+	height: 65px;
+	width: auto;
 }
 
 .site-branding__text {
