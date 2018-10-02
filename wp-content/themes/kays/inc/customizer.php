@@ -21,9 +21,9 @@ function kays_customize_register( $wp_customize ) {
 	
 	// Setting for header and footer background color
 	$wp_customize->add_setting( 'theme_bg_color', array(
-		'default'			=> '#002254',
-		'transport'			=> 'postMessage',
-		'type'				=> 'theme_mod',
+		'default'           => '#d8d8d8',
+		'transport'         => 'postMessage',
+		'type'              => 'theme_mod',
 		'sanitize_callback' => 'sanitize_hex_color',
 	));
 	
@@ -43,11 +43,11 @@ function kays_customize_register( $wp_customize ) {
 	// Create interactive color setting
 	$wp_customize->add_setting( 'interactive_color' , 
 		array(
-			'default'			=> '#b51c35',
-			'transport'			=> 'postMessage',
-			'type'				=> 'theme_mod',
+			'default'		=> '#b51c35',
+			'transport'		=> 'postMessage',
+			'type'			=> 'theme_mod',
 			'sanitize_callback'	=> 'sanitize_hex_color',
-			'transport'			=> 'postMessage',
+			'transport'		=> 'postMessage',
 		)
 	);
 	
@@ -66,8 +66,8 @@ function kays_customize_register( $wp_customize ) {
 	// Add option to select index content
 	$wp_customize->add_section( 'theme_options', 
 		array(
-			'title'			=> __( 'Theme Options', 'kays' ),
-			'priority'		=> 95,
+			'title'		=> __( 'Theme Options', 'kays' ),
+			'priority'	=> 95,
 			'capability'	=> 'edit_theme_options',
 			'description'	=> __( 'Change how much of a post is displayed on index and archive pages.', 'kays' )
 		)
@@ -76,10 +76,10 @@ function kays_customize_register( $wp_customize ) {
 	// Create excerpt or full content settings
 	$wp_customize->add_setting(	'length_setting',
 		array(
-			'default'			=> 'excerpt',
-			'type'				=> 'theme_mod',
+			'default'           => 'excerpt',
+			'type'              => 'theme_mod',
 			'sanitize_callback' => 'kays_sanitize_length', // Sanitization function appears further down
-			'transport'			=> 'postMessage'
+			'transport'         => 'postMessage'
 		)
 	);
 
@@ -90,8 +90,8 @@ function kays_customize_register( $wp_customize ) {
 			'label'		=> __( 'Index/archive displays', 'kays' ),
 			'section'	=> 'theme_options',
 			'choices'	=> array(
-				'excerpt'		=> __( 'Excerpt (default)', 'kays' ),
-				'full-content'	=> __( 'Full content', 'kays' )
+			'excerpt'	=> __( 'Excerpt (default)', 'kays' ),
+			'full-content'	=> __( 'Full content', 'kays' )
 			),
 			'settings'	=> 'length_setting' // Matches setting ID from above
 		)
