@@ -34,5 +34,28 @@
 	    }
     });
 
+    // mobile toggle
+    var active;
+	active = true;
+
+    jQuery('.hamburger').click(function() {
+
+
+        if( $(this).hasClass('disabled') ){
+            return;
+        } else if (active === true) {
+
+            $('.hamburger').addClass('is-active');
+            active = false;
+
+            return;
+        } else {
+            $('.hamburger').removeClass('is-active');
+            active = true;
+
+            return;
+        }
+    });
+
 }) (jQuery); 
 

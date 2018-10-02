@@ -11,3 +11,11 @@ input[type="submit"] {
 	line-height: 1;
 	padding: .5em 1em;
 }
+
+button {
+	text-decoration: none;
+	&:focus,
+  	&:active {
+    	outline: none;
+  	}
+}

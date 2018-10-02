@@ -283,14 +283,6 @@ textarea {
 	}
 }
 
-button {
-	text-decoration: none;
-}
-
-button:focus, button:active {
-	outline: none;
-}
-
 h1, h2, h3, h4, h5, h6 {
 	margin-top: .75em;
 	margin-bottom: .25em;
@@ -517,6 +509,14 @@ input[type="submit"] {
 	font-size: 1rem;
 	line-height: 1;
 	padding: .5em 1em;
+}
+
+button {
+	text-decoration: none;
+}
+
+button:focus, button:active {
+	outline: none;
 }
 
 input[type="text"],
@@ -766,6 +766,107 @@ a:hover, a:active {
 
 .pagination .next .icon {
 	margin-left: .3em;
+}
+
+/*--------------------------------------------------------------
+# Hamburgers
+--------------------------------------------------------------*/
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+.hamburger {
+	padding: 15px 15px;
+	display: inline-block;
+	cursor: pointer;
+	transition-property: opacity, filter;
+	transition-duration: 0.15s;
+	transition-timing-function: linear;
+	font: inherit;
+	color: inherit;
+	text-transform: none;
+	background-color: transparent;
+	border: 0;
+	margin: 0;
+	overflow: visible;
+}
+
+.hamburger:hover {
+	opacity: 1;
+}
+
+.hamburger-box {
+	width: 30px;
+	height: 21px;
+	display: inline-block;
+	position: relative;
+}
+
+.hamburger-inner {
+	display: block;
+	top: 50%;
+	margin-top: -0.5px;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+	width: 30px;
+	height: 1px;
+	background-color: #333;
+	border-radius: 0;
+	position: absolute;
+	transition-property: transform;
+	transition-duration: 0.15s;
+	transition-timing-function: ease;
+}
+
+.hamburger-inner::before, .hamburger-inner::after {
+	content: "";
+	display: block;
+}
+
+.hamburger-inner::before {
+	top: -10px;
+}
+
+.hamburger-inner::after {
+	bottom: -10px;
+}
+
+/*
+   * Spin
+   */
+.hamburger--spin .hamburger-inner {
+	transition-duration: 0.3s;
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin .hamburger-inner::before {
+	transition: top 0.1s 0.34s ease-in, opacity 0.1s ease-in;
+}
+
+.hamburger--spin .hamburger-inner::after {
+	transition: bottom 0.1s 0.34s ease-in, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin.is-active .hamburger-inner {
+	transform: rotate(225deg);
+	transition-delay: 0.14s;
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger--spin.is-active .hamburger-inner::before {
+	top: 0;
+	opacity: 0;
+	transition: top 0.1s ease-out, opacity 0.1s 0.14s ease-out;
+}
+
+.hamburger--spin.is-active .hamburger-inner::after {
+	bottom: 0;
+	transform: rotate(-90deg);
+	transition: bottom 0.1s ease-out, transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 /*--------------------------------------------------------------
@@ -1082,10 +1183,6 @@ a:hover, a:active {
 	transition: all 0.3s ease-in-out;
 }
 
-.home .site-branding:not(.on) {
-	background-color: transparent;
-}
-
 .custom-logo-link {
 	margin-right: 1em;
 }
@@ -1124,10 +1221,6 @@ a:hover, a:active {
 	text-decoration: underline;
 }
 
-.home .site-title a:not(.on) {
-	color: transparent;
-}
-
 .site-description {
 	margin: 0;
 	font-size: .9em;
@@ -1135,10 +1228,6 @@ a:hover, a:active {
 	font-weight: 100;
 	color: #333;
 	transition: all 0.3s ease-in-out;
-}
-
-.home .site-description:not(.on) {
-	color: transparent;
 }
 
 @media screen and (min-width: 846px) {
@@ -1154,10 +1243,19 @@ a:hover, a:active {
 		-ms-flex-pack: justify;
 		    justify-content: space-between;
 	}
+	.home .site-title a:not(.on) {
+		color: transparent;
+	}
+	.home .site-description:not(.on) {
+		color: transparent;
+	}
 	.site-branding {
 		width: 35%;
 		-ms-flex: 0 1 auto;
 		    flex: 0 1 auto;
+	}
+	.home .site-branding:not(.on) {
+		background-color: transparent;
 	}
 	.site-navigation {
 		width: 55%;
@@ -1258,14 +1356,11 @@ button.dropdown-toggle {
 	top: 0;
 	right: 0;
 	display: block;
-	text-transform: uppercase;
 	color: #333;
 	border: 0;
 	overflow: visible;
 	z-index: 99999;
-	margin: 1.2em 1.2em 0 0;
-	padding: .6em .8em;
-	font-size: 1.5em;
+	padding: 33px;
 	background: #d8d8d8;
 }
 

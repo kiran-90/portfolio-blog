@@ -6,8 +6,6 @@
 	background-color: $lightGrey;
 	align-items: center;
   	justify-content: center;
-
-
 	
 	ul {
 		display: none;
@@ -93,14 +91,11 @@ button.dropdown-toggle {
 	top: 0;
 	right: 0;
 	display: block;
-	text-transform: uppercase;
 	color: $dark;
 	border: 0;
 	overflow: visible;
   	z-index: 99999;
-  	margin: 1.2em 1.2em 0 0;
-    padding: .6em .8em;
-    font-size: 1.5em;
+    padding: 33px;
     background: $lightGrey;
 }
 

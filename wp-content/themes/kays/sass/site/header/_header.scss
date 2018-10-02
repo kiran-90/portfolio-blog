@@ -27,12 +27,6 @@
 	padding: 1em;
 	background-color: white;
 	@include smooth;
-
-	.home &{
-  		&:not(.on){
-      		background-color: transparent;
-  		}
-	}
 }
 
 .custom-logo-link {
@@ -67,12 +61,6 @@
 		&:focus {
 			text-decoration: underline;
 		}
-
-		.home &{
-  			&:not(.on){
-      			color: transparent;
-  			}
-		}
 	}
 }
 
@@ -83,12 +71,6 @@
 	font-weight: 100;
 	color: $dark;
 	@include smooth;
-
-	.home &{
-  		&:not(.on){
-      		color: transparent;
-  		}
-	}
 }
 
 @media screen and (min-width: $query__logo-break) {
@@ -103,9 +85,33 @@
 		justify-content: space-between;
 	}
 
+	.site-title {
+		a {
+			.home & {
+  				&:not(.on){
+      				color: transparent;
+  				}
+			}
+		}
+	}
+
+	.site-description {
+		.home & {
+  			&:not(.on){
+      			color: transparent;
+  			}
+		}
+	}
+
 	.site-branding {
 		width: 35%;
 		flex: 0 1 auto;
+
+		.home &{
+  			&:not(.on){
+      			background-color: transparent;
+  			}
+		}
 	}
 
 	.site-navigation {
