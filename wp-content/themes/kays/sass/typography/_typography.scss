@@ -13,6 +13,14 @@ textarea {
 	}
 }
 
+button {
+	text-decoration: none;
+	&:focus,
+  	&:active {
+    	outline: none;
+  	}
+}
+
 @import "headings";
 
 @import "copy";

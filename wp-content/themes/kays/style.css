@@ -42,6 +42,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+/* Smooth transition */
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -282,6 +283,14 @@ textarea {
 	}
 }
 
+button {
+	text-decoration: none;
+}
+
+button:focus, button:active {
+	outline: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	margin-top: .75em;
 	margin-bottom: .25em;
@@ -508,20 +517,6 @@ input[type="submit"] {
 	font-size: 1rem;
 	line-height: 1;
 	padding: .5em 1em;
-}
-
-button:hover, button:active, button:focus,
-input[type="button"]:hover,
-input[type="button"]:active,
-input[type="button"]:focus,
-input[type="reset"]:hover,
-input[type="reset"]:active,
-input[type="reset"]:focus,
-input[type="submit"]:hover,
-input[type="submit"]:active,
-input[type="submit"]:focus {
-	background: white;
-	color: black;
 }
 
 input[type="text"],
@@ -1056,7 +1051,7 @@ a:hover, a:active {
 ## Header
 --------------------------------------------------------------*/
 .header-image {
-	max-height: 60vh;
+	max-height: 80vh;
 	overflow: hidden;
 }
 
@@ -1066,23 +1061,29 @@ a:hover, a:active {
 }
 
 .site-header {
-	position: relative;
-	padding: 1em;
+	position: fixed;
+	top: 0;
 	font-family: "Dekko", cursive;
 	color: #fff;
-	background-color: #002254;
+	width: 100%;
+	transition: all 0.3s ease-in-out;
 }
 
-@media screen and (min-width: 600px) {
-	.site-header {
-		padding: 1em 2em;
-	}
+.home .site-header:not(.on) {
+	background-color: transparent;
 }
 
 .site-branding {
 	display: -ms-flexbox;
 	display: flex;
 	min-height: 65px;
+	padding: 1em;
+	background-color: white;
+	transition: all 0.3s ease-in-out;
+}
+
+.home .site-branding:not(.on) {
+	background-color: transparent;
 }
 
 .custom-logo-link {
@@ -1108,13 +1109,14 @@ a:hover, a:active {
 .site-title {
 	margin: 0;
 	padding: 0;
-	font-size: 1.6em;
 	font-weight: 900;
 	line-height: 1em;
+	font-size: 1.2em;
 }
 
 .site-title a {
-	color: white;
+	transition: all 0.3s ease-in-out;
+	color: #333;
 	text-decoration: none;
 }
 
@@ -1122,14 +1124,30 @@ a:hover, a:active {
 	text-decoration: underline;
 }
 
+.home .site-title a:not(.on) {
+	color: transparent;
+}
+
 .site-description {
 	margin: 0;
 	font-size: .9em;
 	font-style: italic;
 	font-weight: 100;
+	color: #333;
+	transition: all 0.3s ease-in-out;
 }
 
-@media screen and (min-width: 900px) {
+.home .site-description:not(.on) {
+	color: transparent;
+}
+
+@media screen and (min-width: 846px) {
+	.site-title {
+		font-size: 1.6em;
+	}
+}
+
+@media screen and (min-width: 600px) {
 	.site-header {
 		display: -ms-flexbox;
 		display: flex;
@@ -1138,8 +1156,8 @@ a:hover, a:active {
 	}
 	.site-branding {
 		width: 35%;
-		-ms-flex: 1 0 auto;
-		    flex: 1 0 auto;
+		-ms-flex: 0 1 auto;
+		    flex: 0 1 auto;
 	}
 	.site-navigation {
 		width: 55%;
@@ -1153,14 +1171,19 @@ Header Menu
 	display: block;
 	font-family: "Dekko", cursive;
 	font-weight: 400;
-	clear: left;
+	-ms-flex: 1 0 auto;
+	    flex: 1 0 auto;
+	background-color: #d8d8d8;
+	-ms-flex-align: center;
+	    align-items: center;
+	-ms-flex-pack: center;
+	    justify-content: center;
 }
 
 .main-navigation ul {
 	display: none;
 	list-style: none;
 	margin: 0;
-	padding-top: 1em;
 	padding-left: 0;
 }
 
@@ -1199,9 +1222,10 @@ Header Menu
 .main-navigation a {
 	display: inline-block;
 	width: 100%;
-	padding: .5em 1em .5em 0;
+	padding: .8em 1em .8em 0;
 	text-decoration: none;
-	color: #fff;
+	color: #333;
+	text-align: center;
 }
 
 .main-navigation a:hover,
@@ -1234,12 +1258,15 @@ button.dropdown-toggle {
 	top: 0;
 	right: 0;
 	display: block;
+	text-transform: uppercase;
+	color: #333;
+	border: 0;
+	overflow: visible;
+	z-index: 99999;
 	margin: 1.2em 1.2em 0 0;
 	padding: .6em .8em;
-	font-size: 80%;
-	text-transform: uppercase;
-	color: white;
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	font-size: 1.5em;
+	background: #d8d8d8;
 }
 
 /* Toggle small menu and sub-menus on */
@@ -1278,14 +1305,21 @@ button.dropdown-toggle {
 		background: none;
 	}
 	.main-navigation ul li a {
-		padding: .4em 1em;
+		padding: 1em;
 	}
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 600px) {
+	.main-navigation {
+		transition: all 0.3s ease-in-out;
+		padding: 1em;
+	}
+	.home .main-navigation:not(.on) {
+		background-color: transparent;
+	}
 	.main-navigation ul {
-		-ms-flex-pack: end;
-		    justify-content: flex-end;
+		-ms-flex-pack: space-evenly;
+		    justify-content: space-evenly;
 		padding-top: 0;
 	}
 }

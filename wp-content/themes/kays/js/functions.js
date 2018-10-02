@@ -21,5 +21,18 @@
 	if ( true === supportsInlineSVG() ) {
 		document.documentElement.className = document.documentElement.className.replace( /(\s*)no-svg(\s*)/, '$1svg$2' );
 	}
+
+	// Nav bar colour change
+
+	jQuery(window).scroll(function () {
+	    if ($('body').hasClass('home')) {
+	        if( $(this).scrollTop() === 0 ) {
+	            $('.site-branding, .site-header, .site-title a, .site-description, .main-navigation').removeClass('on');
+	        } else {
+	            $('.site-branding, .site-header, .site-title a, .site-description, .main-navigation').addClass('on');
+	        }
+	    }
+    });
+
 }) (jQuery); 
 

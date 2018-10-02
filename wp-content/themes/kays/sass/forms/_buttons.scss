@@ -10,11 +10,4 @@ input[type="submit"] {
 	@include font-size(1);
 	line-height: 1;
 	padding: .5em 1em;
-
-	&:hover ,
-	&:active,
-	&:focus {
-		background: white;
-		color: black;
-	}
 }
