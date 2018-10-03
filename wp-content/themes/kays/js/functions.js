@@ -32,7 +32,20 @@
 	            $('.site-branding, .site-header, .site-title a, .site-description, .main-navigation').addClass('on');
 	        }
 	    }
+
+        // Fade hero quote
+        $(".scroll").css("opacity", 1 - $(window).scrollTop() / 250);
     });
+
+    jQuery(window).resize(function () {
+        if ( !$('body').hasClass('home')) {
+            $('.site-content').css('margin-top', $('.site-header').height());
+        }
+    }).resize();
+
+    // jQuery(window).resize(function() {
+    //     $('.site-content').css('margin-top', $('.site-header').height());
+    // }).resize();
 
     // mobile toggle
     var active;
