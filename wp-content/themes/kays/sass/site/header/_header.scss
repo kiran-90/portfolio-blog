@@ -1,5 +1,5 @@
 .header-image {
-	max-height: 80vh;
+	max-height: 85vh;
 	overflow: hidden;
 	img {
 		display: block;
@@ -123,3 +123,8 @@
 Header Menu
 */
 @import "header-menu";
+
+/*
+Hero
+*/
+@import "hero";

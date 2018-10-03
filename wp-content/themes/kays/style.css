@@ -43,6 +43,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Galleries
 --------------------------------------------------------------*/
 /* Smooth transition */
+/* For clearing floats like a boss */
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -929,6 +930,18 @@ a:hover, a:active {
 	margin-right: auto;
 }
 
+.vertical-center-parent {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.vertical-center {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
@@ -1152,7 +1165,7 @@ a:hover, a:active {
 ## Header
 --------------------------------------------------------------*/
 .header-image {
-	max-height: 80vh;
+	max-height: 85vh;
 	overflow: hidden;
 }
 
@@ -1416,6 +1429,82 @@ button.dropdown-toggle {
 		-ms-flex-pack: space-evenly;
 		    justify-content: space-evenly;
 		padding-top: 0;
+	}
+}
+
+/*
+Hero
+*/
+.parallax-window {
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 550px;
+}
+
+.touch .parallax-window {
+	background-attachment: scroll;
+}
+
+.parallax-window h1 {
+	text-align: center;
+	font-weight: 900;
+	max-width: 640px;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 600px) {
+	.parallax-window h1 {
+		margin-left: 9.5238095%;
+		margin-right: 9.5238095%;
+	}
+}
+
+.hero-panel {
+	text-align: center;
+}
+
+.hero-panel .vertical-center-parent {
+	height: 100%;
+}
+
+.scroll {
+	padding: 2.8em 0 2.6em;
+	width: 100%;
+	color: #706f6f;
+	text-transform: uppercase;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+}
+
+.scroll:after {
+	content: url(./images/arrow-scroll.svg);
+	display: block;
+	margin: .4em auto 0;
+	animation: bounce 2s infinite;
+}
+
+.scroll:after a:visited, .scroll:after a:hover, .scroll:after a:focus, .scroll:after a:active {
+	color: transparent;
+	outline: none;
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-10px);
+	}
+	60% {
+		transform: translateY(-8px);
 	}
 }
 

@@ -24,6 +24,7 @@ function kays_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'kays_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => 'ffffff',
+                'header-text'           => true,
 		'width'                  => 2000,
 		'height'                 => 850,
 		'flex-height'            => true,

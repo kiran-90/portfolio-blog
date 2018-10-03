@@ -49,12 +49,14 @@
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
         
-            <?php if ( get_header_image() && is_front_page() ) : ?>
+        <?php if ( get_header_image() && is_front_page() ) : ?>
 	<figure class="header-image">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+                <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
             </a>
         </figure>
 	<?php endif; // End header image check. ?>
+        
+        <a class="scroll" href="#"></a>
 
 	<div id="content" class="site-content">

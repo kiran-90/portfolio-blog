@@ -14,3 +14,14 @@
 	clear: both;
 	@include center-block;
 }
+
+.vertical-center-parent {
+   display: table;
+   table-layout: fixed;
+   width: 100%;
+}
+.vertical-center {
+   display: table-cell;
+   vertical-align: middle;
+   width: 100%;
+}

@@ -1,0 +1,119 @@
+.parallax-window {
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 550px;
+
+  .touch &{
+    background-attachment: scroll;
+  }
+
+  h1{
+    text-align: center;
+    font-weight: 900;
+    max-width: 640px;
+    margin: 0 auto;
+
+    @media screen and (min-width: $query__small) {
+        margin-left: 9.5238095%;
+        margin-right: 9.5238095%;
+	}
+
+  }
+}
+
+.hero-panel {
+  // border-bottom: 2px dotted $darkGrey;
+  text-align: center;
+
+  .vertical-center-parent {
+    height: 100%;
+  }
+}
+
+.scroll {
+  padding: 2.8em 0 2.6em;
+  width: 100%;
+  color: $darkGrey;
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+
+  &:after {
+    content: url(./images/arrow-scroll.svg);
+    display: block;
+    margin: .4em auto 0;
+
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+
+  a {
+  	&:visited,
+  	&:hover,
+  	&:focus,
+  	&:active {
+  		color: transparent;
+  		outline: none;
+  	}
+  }
+
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+
+@-moz-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  60% {
+    -moz-transform: translateY(-8px);
+    -ms-transform: translateY(-8px);
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
